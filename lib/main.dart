@@ -55,9 +55,32 @@ class _MyHomePageState extends State<MyHomePage>
         children: [
           ...tabs.map(
             (e) => Center(
-              child: Text(
-                e,
-                style: Theme.of(context).textTheme.displayLarge,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      pageController.previousPage(
+                        duration: Durations.long4,
+                        curve: Curves.ease,
+                      );
+                    },
+                    icon: const Icon(Icons.chevron_left),
+                  ),
+                  Text(
+                    e,
+                    style: Theme.of(context).textTheme.displayLarge,
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      pageController.nextPage(
+                        duration: Durations.long4,
+                        curve: Curves.ease,
+                      );
+                    },
+                    icon: const Icon(Icons.chevron_right),
+                  ),
+                ],
               ),
             ),
           )
